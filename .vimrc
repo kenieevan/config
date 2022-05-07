@@ -1,36 +1,10 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+"set nocompatible              " be iMproved, required
+filetype on                  " required
 
-" set the runtime path to include Vundle and initialize
-   set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-   " let Vundle manage Vundle, required
-   Plugin 'VundleVim/Vundle.vim'
-   Plugin 'fatih/vim-go'
-   " All of your Plugins must be added before the following line
-   call vundle#end()            " required
-   filetype plugin indent on    " required
+filetype plugin indent on    " required
    " To ignore plugin indent changes, instead use:
-   "filetype plugin on
-   "
-   " Brief help
-   " :PluginList       - lists configured plugins
-   " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-   " :PluginSearch foo - searches for foo; append `!` to refresh local cache
-   " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-   "
-   " see :h vundle for more details or wiki for FAQ
-   " Put your non-Plugin stuff after this line
-
-"ctrl+c ctrl+v ctrl+q
-"source $VIMRUNTIME/mswin.vim
-"behave mswin
-
-
-"set nocompatible
+filetype plugin on
 "set nu
-
 
 "for python indent
 set autoindent " same level indent 
@@ -38,21 +12,20 @@ set smartindent " next level indent
 "tab as spaces
 set expandtab
 "number of spaces used for a tab
-set softtabstop=3
+set softtabstop=4
 "number of spaces used for indent.
-set shiftwidth=3
+set shiftwidth=4
 
 filetype plugin on
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+"autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 set hlsearch
 set incsearch  "show the result while typing
 
-set ignorecase
+"set ignorecase
 "set to auto read when a file is changed from the outside
 set autoread
 "set line number
-"set nu
 "save csope search result in quickfix window
 "use cw command to show the window
 set cscopequickfix=s-,c-,d-,i-,t-,e-
@@ -80,13 +53,12 @@ set nocscopetag
 "Taglist only show current file tag
 let Tlist_Show_One_File=1
 let Tlist_Use_Right_Window=1
-let Tlist_WinWidth = 50
-let g:NERDTreeWinSize=50
-map <F7> :NERDTreeToggle<CR>
-map <F4> :TlistToggle<CR>
-map <F5> :cs find
-map <F6> :tabnew<CR>
+let Tlist_WinWidth = 20
+let g:NERDTreeWinSize=20
+map <C-N> :NERDTreeToggle<CR>
+map <C-L> :TlistToggle<CR>
 "tips
+"
 " !start cmd & ; start a cmd async
 "
 "command to all buffers
@@ -116,3 +88,17 @@ hi Comment ctermfg=6
 "
 "font size
 "set guifont=*
+"
+"
+""imap <c-h> <Left>
+"imap <c-l> <Right>
+"imap <c-k> <Up>
+"imap <c-j> <Down>
+
+autocmd FileType python let &makeprg='pylint %\|sed "s/^\(\w*\):\s*\([0-9]\+\)/%:\2:\ \1:\ /g"'
+autocmd BufWritePost *.py make 
+"brace completion
+inoremap { {<CR>}<Esc>ko
+inoremap ( ()<Esc>i
+inoremap " ""<Esc>i
+
