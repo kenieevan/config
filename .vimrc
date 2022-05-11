@@ -19,7 +19,7 @@ set shiftwidth=4
 filetype plugin on
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
 
-set hlsearch
+"set hlsearch
 set incsearch  "show the result while typing
 
 "set ignorecase
@@ -100,5 +100,6 @@ autocmd BufWritePost *.py make
 "brace completion
 inoremap { {<CR>}<Esc>ko
 inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
 inoremap " ""<Esc>i
 
